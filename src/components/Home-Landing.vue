@@ -14,9 +14,12 @@
         <p class="text-lg md:text-2xl mt-4 text-white font-medium">
           Financial uncertainty is hard on employees, and causes even.
         </p>
-        <button class="text-lg mt-6 font-medium border-2 border-white px-7 py-3 text-white w-fit">
+        <RouterLink
+          to="/services"
+          class="text-lg mt-6 font-medium border-2 border-white px-7 py-3 text-white w-fit"
+        >
           Our Services
-        </button>
+        </RouterLink>
       </div>
       <div
         class="w-full flex-col bg-white z-[5] m-5 p-4 text-center my-auto hidden sm:flex sm:w-3/4 md:w-full"
@@ -53,7 +56,7 @@
               <i
                 :class="{
                   'fa-solid fa-angle-down': !showDropdown,
-                  'fa-solid fa-angle-up': showDropdown
+                  'fa-solid fa-angle-up': showDropdown,
                 }"
               ></i>
             </button>
@@ -73,7 +76,9 @@
         <p class="text-sm font-medium text-left my-2 text-gray-900/80">
           You have to pay : <span>${{ price }}</span>
         </p>
-        <button class="py-2 text-sm font-semibold text-white bg-sky-500 rounded shadow-sm">
+        <button
+          class="py-2 text-sm font-semibold text-white bg-sky-500 rounded shadow-sm"
+        >
           Apply
         </button>
         <p class="text-base text-gray-900/70 font-semibold my-3">
@@ -84,30 +89,30 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   data() {
     return {
       showDropdown: ref(false),
-      monthValue: ref('select month'),
-      price: ref(0)
-    }
+      monthValue: ref("select month"),
+      price: ref(0),
+    };
   },
   methods: {
     toggleDropdown(): void {
-      this.showDropdown = !this.showDropdown
+      this.showDropdown = !this.showDropdown;
     },
 
     getMonth(value: string): void {
-      this.monthValue = value
-      this.showDropdown = !this.showDropdown
+      this.monthValue = value;
+      this.showDropdown = !this.showDropdown;
     },
     getAmount(e: any) {
-      this.price = e.target.value
-    }
-  }
-})
+      this.price = e.target.value;
+    },
+  },
+});
 </script>
 
 <style>
